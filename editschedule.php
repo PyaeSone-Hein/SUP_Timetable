@@ -1,4 +1,9 @@
 <?php
+include('session_check.php');
+// Add session check to the beginning of this file to protect it
+?>
+
+<?php
 include('connection.php');
 
 // Get the schedule ID from the query string

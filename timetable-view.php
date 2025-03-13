@@ -1,4 +1,5 @@
 <?php 
+include('session_check.php');
 include('connection.php');
 
 // Fetch all unique time slots and sort them
@@ -76,6 +77,16 @@ while($row = mysqli_fetch_array($schedulesQuery)) {
                 display: none;
             }
         }
+        .user-info {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            margin-bottom: 15px;
+        }
+        .user-info .username {
+            margin-right: 15px;
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
@@ -84,7 +95,13 @@ while($row = mysqli_fetch_array($schedulesQuery)) {
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header bg-primary text-white">
-                        <h4>Weekly Timetable</h4>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h4>Weekly Timetable</h4>
+                            <div class="user-info no-print">
+                                <span class="username">Welcome, <?php echo $_SESSION['username']; ?></span>
+                                <a href="logout.php" class="btn btn-sm btn-light">Logout</a>
+                            </div>
+                        </div>
                     </div>
                     <div class="card-body">
                         <div class="action-buttons no-print">
@@ -148,7 +165,7 @@ while($row = mysqli_fetch_array($schedulesQuery)) {
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
     <footer class="text-center mt-4 mb-2">
-  <small class="text-muted">&copy; 2025 SUP_Timetable by PforPyae. All rights reserved.</small>
-</footer>
+        <small class="text-muted">&copy; 2025 SUP_Timetable by PforPyae. All rights reserved.</small>
+    </footer>
 </body>
 </html>

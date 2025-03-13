@@ -1,3 +1,8 @@
+<?php
+include('session_check.php');
+// Add session check to the beginning of this file to protect it
+?>
+
 <!doctype html>
 <html lang="en">
   <head>

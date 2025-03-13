@@ -1,3 +1,6 @@
+<?php
+include('session_check.php');
+?>
 <!--
 SUP_Timetable - A comprehensive timetable management system
 @author      PforPyae
@@ -22,6 +25,16 @@ SUP_Timetable - A comprehensive timetable management system
         margin-right: 5px;
         border: 1px solid #ddd;
       }
+      .user-info {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+      }
+      .user-info .username {
+        margin-right: 15px;
+        font-weight: bold;
+        color: white;
+      }
     </style>
   </head>
 
@@ -32,7 +45,13 @@ SUP_Timetable - A comprehensive timetable management system
         <div class="col-md-12">
           <div class="card">
             <div class="card-header bg-primary text-white">
-              <h4>Timetable Management System</h4>
+              <div class="d-flex justify-content-between align-items-center">
+                <h4>Timetable Management System</h4>
+                <div class="user-info">
+                  <span class="username">Welcome, <?php echo $_SESSION['username']; ?></span>
+                  <a href="logout.php" class="btn btn-sm btn-light">Logout</a>
+                </div>
+              </div>
             </div>
             <div class="card-body">
               <a href="addschedule.php" class="btn btn-md btn-success" style="margin-bottom: 10px">ADD SUBJECT</a>
